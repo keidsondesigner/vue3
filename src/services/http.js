@@ -8,6 +8,9 @@ const http = {
   get(endpoint) {
     return axiosInstance.get(endpoint);
   },
+  post(endpoint, body) {
+    return axiosInstance.post(endpoint, body);
+  },
 };
 
 export default http;
