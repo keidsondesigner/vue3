@@ -1,21 +1,27 @@
 <template>
-  <section>
-    <h1>Produto Lista</h1>
-    <div v-for="item in produtos" :key="item.id">
-      <img
-        v-if="item.images"
-        :src="item.images[0].src"
-        :alt="item.mages[0].name"
-      />
-      <h2>
-        {{ item.name }}
-      </h2>
-      <p>
-        {{ item.description }}
-      </p>
-      <p>
-        {{ item.value }}
-      </p>
+  <section class="produtos-container">
+    <div v-if="produtos && produtos.length > 0" class="produtos">
+      <div v-for="item in produtos" :key="item.id" class="produto">
+        <router-link to="/">
+          <img
+            v-if="item.images"
+            :src="item.images[0].src"
+            :alt="item.mages[0].name"
+          />
+          <p class="preco">
+            {{ item.value }}
+          </p>
+          <h2 class="titulo">
+            {{ item.name }}
+          </h2>
+          <p>
+            {{ item.description }}
+          </p>
+        </router-link>
+      </div>
+    </div>
+    <div v-else-if="produtos && produtos.length === 0">
+      <p class="sem-resultado">Buasca sem resultados. Tente outro produto.</p>
     </div>
   </section>
 </template>
@@ -61,5 +67,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.produtos-container {
+  max-width: 1000px;
+  margin: 0 auto;
 
+  .produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colunas com o mesmo tamanho;
+    grid-gap: 20px;
+    margin: 30px;
+
+    .produto {
+      box-shadow: 0 4px 8px rgb(30, 60, 90, 0.1);
+      padding: 10px;
+      background: #fff;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .produto:hover {
+      box-shadow: 0 4px 8px rgb(30, 60, 90, 0.2);
+      transform: scale(1.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    img {
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .titulo {
+      margin-bottom: 10px;
+    }
+
+    .preco {
+      color: #e80;
+      font-weight: bold;
+    }
+
+    .sem-resultado {
+      text-align: center;
+    }
+  }
+}
 </style>
