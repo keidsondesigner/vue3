@@ -4,7 +4,7 @@
     <Transition name="slide-up">
       <div v-if="produtos && produtos.length > 0" class="produtos" key="produtos">
         <div v-for="(item, index) in produtos" :key="index" class="produto">
-          <router-link to="/">
+          <router-link :to="{name: 'produtoDetalhes', params: { id: item.id}}">
             <img
               v-if="item.images"
               :src="item.images[0].src"
