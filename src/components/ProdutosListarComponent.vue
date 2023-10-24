@@ -1,7 +1,7 @@
 <template>
   <section class="produtos-container">
     <div v-if="produtos && produtos.length > 0" class="produtos">
-      <div v-for="item in produtos" :key="item.id" class="produto">
+      <div v-for="(item, index) in produtos" :key="index" class="produto">
         <router-link to="/">
           <img
             v-if="item.images"
@@ -19,6 +19,10 @@
           </p>
         </router-link>
       </div>
+      <ProdutosPaginarComponent
+        :produtosTotal="produtosTotal"
+        :produtosPorPagina="produtosPorPagina"
+      />
     </div>
     <div v-else-if="produtos && produtos.length === 0">
       <p class="sem-resultado">Buasca sem resultados. Tente outro produto.</p>
@@ -30,12 +34,18 @@
 import http from '@/services/http';
 import serialize from '@/helpers/serialize';
 
+import ProdutosPaginarComponent from './ProdutosPaginarComponent.vue';
+
 export default {
   name: 'ProdutoListarComponent',
+  components: {
+    ProdutosPaginarComponent,
+  },
   data() {
     return {
       produtos: [],
       produtosPorPagina: 9,
+      produtosTotal: 0,
     };
   },
   computed: {
@@ -49,6 +59,12 @@ export default {
       // com Axios não preciso transformar meu response em json() ele já faz isso;
       http.get(`/products/${this.tratarUrl}`)
         .then((response) => {
+          // eslint-disable-next-line no-console
+          console.log('getProdutos()', response);
+          console.log('response.headers x-total-count: ', response.headers['x-total-count']);
+          this.produtosTotal = Number(response.headers['x-total-count']);
+          // eslint-disable-next-line no-console
+          console.log('produtosPorPagina: ', this.produtosTotal);
           this.produtos = response.data;
         });
     },
