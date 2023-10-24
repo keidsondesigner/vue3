@@ -96,4 +96,20 @@ input:hover, input:focus, textarea:hover, textarea:focus {
   box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
   border-color: #87f;
 }
+
+// STYLE DE TRANSIÇÃO  >>>>>>>>>>>>>
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
 </style>

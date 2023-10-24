@@ -1,32 +1,36 @@
 <template>
   <section class="produtos-container">
-    <div v-if="produtos && produtos.length > 0" class="produtos">
-      <div v-for="(item, index) in produtos" :key="index" class="produto">
-        <router-link to="/">
-          <img
-            v-if="item.images"
-            :src="item.images[0].src"
-            :alt="item.mages[0].name"
-          />
-          <p class="preco">
-            {{ item.value }}
-          </p>
-          <h2 class="titulo">
-            {{ item.name }}
-          </h2>
-          <p>
-            {{ item.description }}
-          </p>
-        </router-link>
+    <!-- Transitions sempre vai no if -->
+    <Transition name="slide-up">
+      <div v-if="produtos && produtos.length > 0" class="produtos" key="produtos">
+        <div v-for="(item, index) in produtos" :key="index" class="produto">
+          <router-link to="/">
+            <img
+              v-if="item.images"
+              :src="item.images[0].src"
+              :alt="item.mages[0].name"
+            />
+            <p class="preco">
+              {{ item.value }}
+            </p>
+            <h2 class="titulo">
+              {{ item.name }}
+            </h2>
+            <p>
+              {{ item.description }}
+            </p>
+          </router-link>
+        </div>
+        <ProdutosPaginarComponent
+          :produtosTotal="produtosTotal"
+          :produtosPorPagina="produtosPorPagina"
+        />
       </div>
-      <ProdutosPaginarComponent
-        :produtosTotal="produtosTotal"
-        :produtosPorPagina="produtosPorPagina"
-      />
-    </div>
-    <div v-else-if="produtos && produtos.length === 0">
-      <p class="sem-resultado">Buasca sem resultados. Tente outro produto.</p>
-    </div>
+      <div v-else-if="produtos && produtos.length === 0" key="sem-resultados">
+        <p class="sem-resultado">Buasca sem resultados. Tente outro produto.</p>
+      </div>
+      <LoadingComponent v-else key="loading"/>
+    </Transition>
   </section>
 </template>
 
@@ -56,17 +60,20 @@ export default {
   },
   methods: {
     getProdutos() {
-      // com Axios não preciso transformar meu response em json() ele já faz isso;
-      http.get(`/products/${this.tratarUrl}`)
-        .then((response) => {
-          // eslint-disable-next-line no-console
-          console.log('getProdutos()', response);
-          console.log('response.headers x-total-count: ', response.headers['x-total-count']);
-          this.produtosTotal = Number(response.headers['x-total-count']);
-          // eslint-disable-next-line no-console
-          console.log('produtosPorPagina: ', this.produtosTotal);
-          this.produtos = response.data;
-        });
+      this.produtos = null;
+      setTimeout(() => {
+        // com Axios não preciso transformar meu response em json() ele já faz isso;
+        http.get(`/products/${this.tratarUrl}`)
+          .then((response) => {
+            // eslint-disable-next-line no-console
+            console.log('getProdutos()', response);
+            console.log('response.headers x-total-count: ', response.headers['x-total-count']);
+            this.produtosTotal = Number(response.headers['x-total-count']);
+            // eslint-disable-next-line no-console
+            console.log('produtosPorPagina: ', this.produtosTotal);
+            this.produtos = response.data;
+          });
+      }, 800);
     },
   },
   created() {
