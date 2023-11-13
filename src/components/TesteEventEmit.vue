@@ -7,11 +7,6 @@ export default {
   name: 'TesteEventEmit',
   data() {
     return {
-      isPwd: true,
-      isLogin: false,
-      isPrimeiroAcesso: true,
-      isDadosprofissionais: false,
-      isDadosAcesso: false,
       newCadastro: {
         nome: undefined,
         nascimento: undefined,
