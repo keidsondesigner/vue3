@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import LoginView from '../views/LoginView.vue';
 import ProdutoDetalhesView from '../views/ProdutoDetalhesView.vue';
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
     name: 'produtoDetalhes',
     component: ProdutoDetalhesView,
     props: true,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
   },
 ];
 
