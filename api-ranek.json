@@ -1,0 +1,136 @@
+{
+  "users": [
+    {
+      "id": "keidsondesigner@gmail.com",
+      "email": "keidsondesigner@gmail.com",
+      "name": "Keidson Roby",
+      "password": "123456",
+      "street": "Rua exemplo 1",
+      "cep": "69058582",
+      "num": "9999",
+      "state": "AM",
+      "city": "Manaus"
+    },
+    {
+      "id": "adalfadesign@gmail.com",
+      "email": "adalfadesign@gmail.com",
+      "name": "Keidson Roby 2",
+      "password": "123456",
+      "street": "Rua exemplo 2",
+      "cep": "69058582",
+      "num": "9999",
+      "state": "AM",
+      "city": "Manaus"
+    }
+  ],
+  "products": [
+    {
+      "id": "notebook",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Notebook Vue",
+      "description": "O melhor e mais rápido",
+      "value": "6900",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "monitor",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Monitor Gamer",
+      "description": "Monitor Gamer 144Hz com 0.5ms",
+      "value": "2599",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "cadeira",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Cadeira Gamer",
+      "description": "Ergonómica e confortável",
+      "value": "3500",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "smartphone",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Smartphone Galaxy S22",
+      "description": "O mais recente lançamento da Samsung",
+      "value": "2799",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "tablet",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Tablet Android Pro",
+      "description": "Tablet de alto desempenho com Android",
+      "value": "999",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "tv",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "TV LED 4K 55' ",
+      "description": "Qualidade de imagem incrível",
+      "value": "1999",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "caixa-de-som",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Caixa de Som Bluetooth",
+      "description": "Som de alta qualidade em um design compacto",
+      "value": "199",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "fones-de-ouvido",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "HeadSet Gamer",
+      "description": "Confortáveis e com ótima qualidade sonora",
+      "value": "149",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "impressora",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Impressora a Laser",
+      "description": "Impressões de alta resolução em velocidade rápida",
+      "value": "599",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "máquina-de-café",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Máquina de Café Expresso",
+      "description": "Desfrute de café de qualidade de cafeteria em casa",
+      "value": "399",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "teclado",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Teclado Mecânico RGB",
+      "description": "Perfeito para jogos e digitação",
+      "value": "149",
+      "images": null,
+      "sold": "false"
+    },
+    {
+      "id": "mouse",
+      "user_id": "keidsondesigner@gmail.com",
+      "name": "Mouse Gamer",
+      "description": "Alta precisão e resposta rápida",
+      "value": "79",
+      "images": null,
+      "sold": "false"
+    }
+  ]
+}
