@@ -2,7 +2,9 @@
   <div id="app">
     <HeaderComponent />
     <main id="main">
-      <router-view/>
+      <Transition name="fade">
+        <router-view/>
+      </Transition>
     </main>
     <FooterComponent />
   </div>
@@ -80,6 +82,10 @@ img {
   }
 }
 
+label {
+  margin-bottom: 5px;
+}
+
 input, textarea {
   border-radius: 4px;
   border: 1px solid #fff;
@@ -111,5 +117,16 @@ input:hover, input:focus, textarea:hover, textarea:focus {
 .slide-up-leave-to {
   opacity: 0;
   transform: translateY(-30px);
+}
+
+// STYLE DE TRANSIÇÃO para 'fade'  >>>>>>>>>>>>>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
