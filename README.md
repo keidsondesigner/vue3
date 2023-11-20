@@ -5,9 +5,16 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run Serve Frontend for development
 ```
 npm run serve
+```
+### Run Server FAKE API
+```
+npm i json-server
+```
+```
+json-server --watch api-ranek.json
 ```
 
 ### Compiles and minifies for production
