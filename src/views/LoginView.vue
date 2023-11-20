@@ -38,6 +38,8 @@ export default {
   methods: {
     logar() {
       this.$store.dispatch('getUsuario', this.login.email);
+      // ao efetuar login, o User será enviado para página de usuario;
+      this.$router.push('/usuario');
     },
   },
 };
