@@ -7,13 +7,14 @@ export default createStore({
     usuario: {
       id: '',
       name: '',
+      email: '',
       password: '',
       cep: '',
       street: '',
       num: '',
+      neighborhood: '',
       city: '',
       state: '',
-
     },
   },
   getters: {
@@ -23,7 +24,9 @@ export default createStore({
       state.login = payload;
     },
     UPDATE_USUARIO(state, payload) {
-      state.usuario = payload;
+      // ...state.usuario vou pegar os dados que existem em usuario
+      // e combinar"concatenar" com o recebido no payload;
+      state.usuario = { ...state.usuario, ...payload };
     },
   },
   actions: {
