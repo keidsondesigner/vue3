@@ -31,10 +31,15 @@ export default createStore({
   },
   actions: {
     getUsuario(context, payload) {
-      http.get(`/users/${payload}`).then((response) => {
+      return http.get(`/users/${payload}`).then((response) => {
         context.commit('UPDATE_USUARIO', response.data);
         context.commit('UPDATE_LOGIN', true);
       });
+    },
+    criarUsuario(context, payload) {
+      // context.commit('UPDATE_USUARIO', { id: payload.email }); // enviando o email como id;
+      // console.log(payload);
+      return http.post('/users', payload);
     },
   },
   modules: {
