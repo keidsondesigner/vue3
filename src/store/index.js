@@ -41,6 +41,21 @@ export default createStore({
       // console.log(payload);
       return http.post('/users', payload);
     },
+    deslogarUsuario(context) {
+      context.commit('UPDATE_USUARIO', {
+        id: '',
+        name: '',
+        email: '',
+        password: '',
+        cep: '',
+        street: '',
+        num: '',
+        neighborhood: '',
+        city: '',
+        state: '',
+      });
+      context.commit('UPDATE_LOGIN', false);
+    },
   },
   modules: {
   },
