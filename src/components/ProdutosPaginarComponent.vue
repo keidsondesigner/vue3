@@ -1,6 +1,8 @@
 <template>
   <ul v-if="paginasTotal > 1">
-    <li v-for="pagina in paginas" :key="pagina">
+    <li v-for="pagina in paginas"
+      :key="pagina"
+      :class="paginaAtual(pagina)">
       <router-link :to="{query: query(pagina)}">
         {{ pagina }}
       </router-link>
@@ -27,6 +29,12 @@ export default {
         ...this.$route.query,
         _page: pagina,
       };
+    },
+    paginaAtual(pagina) {
+      if (this.$route.href.includes(pagina)) {
+        return 'active';
+      }
+      return 'no-active';
     },
   },
   computed: {
@@ -71,19 +79,27 @@ li {
   display: inline-block;
 }
 
-li a {
-  padding: 2px 8px;
+li {
+  padding: 4px 8px;
   border-radius: 2px;
   margin: 4px;
-}
-
-li a:hover {
-  background: rgb(87, 75, 168);
   color: #fff;
 }
 
-// li a.router-link-exact-active {
-//   background: #87f;
-//   color: #fff;
-// }
+li:hover {
+  background: rgb(108, 93, 207);
+  color: #fff;
+}
+li a:hover {
+  color: #fff;
+}
+
+.active {
+  background: #87f;
+  color: #fff;
+  padding: 4px 8px;
+}
+.active a {
+  color: #fff;
+}
 </style>
